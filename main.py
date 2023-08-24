@@ -7,7 +7,6 @@ class YaUploader:
         self.token = token
 
     def upload(self, file_path: str):
-        """Метод загружает файлы по списку file_list на яндекс диск"""
         url = 'https://cloud-api.yandex.net/v1/disk/resources/upload'
         headers = {'Authorization': 'OAuth '+self.token}
         file_name = path_to_file.split('\\')
@@ -21,11 +20,13 @@ class YaUploader:
                     return print('Файл загружен')
                 else:
                     return print('Файл не загружен')
+        else:
+            return print(f'Ошибка {response.status_code}')
 
 
 if __name__ == '__main__':
     # Получить путь к загружаемому файлу и токен от пользователя
-    path_to_file = r'C:\Users\Денис\Desktop\Netology\Yandexuploader\upload\photo.jpg'
+    path_to_file = r'upload\photo.jpg'
     token = TOKEN
     uploader = YaUploader(token)
     result = uploader.upload(path_to_file)
