@@ -10,7 +10,7 @@ class YaUploader:
         url = 'https://cloud-api.yandex.net/v1/disk/resources/upload'
         headers = {'Authorization': 'OAuth '+self.token}
         file_name = path_to_file.split('\\')
-        params = {'path': '/' + file_name[-1], 'overwrite': 'false'}
+        params = {'path': '/' + file_name[-1], 'overwrite': 'true'}
         response = requests.get(url, headers=headers, params=params)
         if 200 <= response.status_code < 300:
             upload_link = (response.json()).get('href')
