@@ -1,7 +1,7 @@
 import requests
 from keys.token import TOKEN
 
-
+'''Для работы необходимо в папке keys в файле token вписать свой token'''
 class YaUploader:
     def __init__(self, token: str):
         self.token = token
